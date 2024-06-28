@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        /* Carousel */
+        .carousel-inner img {
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .carousel-caption h1 {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+
+        .carousel-caption p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+
+        /* UKM Section */
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: #555;
+            text-align: center;
+        }
+
+        .img-fluid {
+            transition: transform 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.05);
+        }
+
+        .category-img {
+            width: 40%;
+            height: auto;
+        }
+
+        .btn-logout {
+            display: inline-block;
+            padding: 6px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #dc3545; /* Warna tombol logout */
+            border: none;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #c82333; /* Warna saat hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #fff;
+            margin: 0;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        footer a:hover {
+            color: #800000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="img/instiki_logo.png" alt="instiki_logo" height="65" class="d-inline-block align-text-top me-2">
+            </a>
+            <div class="d-flex justify-content-end">
+                <button class="btn-logout" id="logoutButton">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="img/carousel1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>GRADASI<br>(Graphic Design & Multimedia INSTIKI)</h1>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="img/carousel2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Ciptakan Seni!</h1>
+                    <p>Kehidupan adalah seni yang indah!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/carousel3.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Berkarya!</h1>
+                    <p>Tuangkan semua imajinasimu, dalam bentuk karya disini!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- Logos Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center">Dashboard Admin</h2><br><br>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-md-3 col-6">
+                    <a href="../admin/daftar-peserta/list_users.php"><img src="img/users.svg" class="img-fluid mb-4 category-img" alt="Category 1"></a>
+                    <p class="category-name">Daftar Peserta</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <a href="../admin/daftar-kegiatan/upload_kegiatan.php"><img src="img/kegiatan.svg" class="img-fluid mb-4 category-img" alt="Category 2"></a>
+                    <p class="category-name">Buat Kegiatan</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <img src="img/absensi.svg" class="img-fluid mb-4 category-img" alt="Category 3">
+                    <p class="category-name">Absensi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 GRADASI (Graphic Design & Multimedia INSTIKI). All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-white">Facebook</a> |
+                <a href="#" class="text-white">Twitter</a> |
+                <a href="#" class="text-white">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+         document.getElementById('logoutButton').addEventListener('click', function() {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Anda akan logout dari halaman ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../homepage_gradasi.php';
+                } 
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const logout = urlParams.get('logout');
+
+            if (logout === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logged Out',
+                    text: 'You have successfully logged out.',
+                    confirmButtonText: 'OK'
+                });
+            } else if (logout === 'fail') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Logout Failed',
+                    text: 'There was an issue logging out. Please try again.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
