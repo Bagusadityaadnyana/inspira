@@ -54,8 +54,8 @@
 </head>
 <body>
     <div class="form-container">
-        <h2 class="text-center">Upload Kegiatan UKM</h2>
-        <p class="text-center">Silahkan lengkapi form dibawah untuk membuat sebuah kegiatan!</p>
+        <h2 class="text-center">ABSENSI</h2>
+        <p class="text-center">Silahkan lengkapi data di bawah untuk melakukan absensi</p>
         <?php
         // Konfigurasi koneksi ke database
         $servername = "localhost";
